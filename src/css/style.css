@@ -97,3 +97,6 @@ a {
   margin: 2rem!important;
 }
 
+#textareaField .infoUser .input-form {
+  height: 200px;
+}
