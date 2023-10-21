@@ -73,6 +73,15 @@ a {
 
 #wrapper {
   max-width: 1440px;
+  height: 100%;
   background-color: rgba(149, 241, 10, 0.658);
+  margin: 0 auto;
 }
 
+
+#dropDownList {
+  max-width: 800px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
