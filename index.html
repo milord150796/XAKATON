@@ -21,58 +21,65 @@
         <h1>AutoSTi - Automatic System Text Identification</h1>
       </div>
     </header>
-
-    <section id="dropDownList">
-      <div class="input-group mb-3 avtoBrand">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Марка</label>
+    <div class="content">
+      <section id="dropDownList">
+        <div class="input-group mb-3 avtoBrand">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Марка</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">BMW</option>
+            <option value="2">Ford</option>
+            <option value="3">Honda</option>
+          </select>
         </div>
-        <select class="custom-select" id="inputGroupSelect01">
-          <option selected>Choose...</option>
-          <option value="1">BMW</option>
-          <option value="2">Ford</option>
-          <option value="3">Honda</option>
-        </select>
-      </div>
-      <div class="input-group mb-3 avtoModal">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect02">Mодель</label>
+        <div class="input-group mb-3 avtoModal">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect02">Mодель</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect02">
+            <option selected>Choose...</option>
+            <option value="1">Fusion</option>
+            <option value="2">Bronco</option>
+            <option value="4">Contour</option>
+            <option value="5">Sierra</option>
+          </select>
         </div>
-        <select class="custom-select" id="inputGroupSelect02">
-          <option selected>Choose...</option>
-          <option value="1">Fusion</option>
-          <option value="2">Bronco</option>
-          <option value="4">Contour</option>
-          <option value="5">Sierra</option>
-        </select>
-      </div>
-      <div class="input-group mb-3 avtoYear">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect03">Рік випуску</label>
+        <div class="input-group mb-3 avtoYear">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect03">Рік випуску</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect03">
+            <option selected>Choose...</option>
+            <option value="1">... до 1995</option>
+            <option value="2">... до 2000</option>
+            <option value="4">... до 2005</option>
+            <option value="5">... до 2010</option>
+          </select>
         </div>
-        <select class="custom-select" id="inputGroupSelect03">
-          <option selected>Choose...</option>
-          <option value="1">... до 1995</option>
-          <option value="2">... до 2000</option>
-          <option value="4">... до 2005</option>
-          <option value="5">... до 2010</option>
-        </select>
-      </div>
-      <div class="input-group mb-3 avtoKindPetrol">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect04">Вид палива</label>
+        <div class="input-group mb-3 avtoKindPetrol">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect04">Вид палива</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect04">
+            <option selected>Choose...</option>
+            <option value="1">Бензин</option>
+            <option value="2">Газ</option>
+            <option value="4">Дизель</option>
+            <option value="5">Гібрид</option>
+          </select>
         </div>
-        <select class="custom-select" id="inputGroupSelect04">
-          <option selected>Choose...</option>
-          <option value="1">Бензин</option>
-          <option value="2">Газ</option>
-          <option value="4">Дизель</option>
-          <option value="5">Гібрид</option>
-        </select>
+      </section>
+    </div>
+    <section id="textareaField">
+      <div class="row mb-3 infoUser">
+        <label for="whatInfo" class="col-sm-12 col-form-label">Будь-ласка, введіть данні по автомобілю:</label>
+        <div class="fild">
+          <textarea id="whatInfoUser" type="text" name="whatInfo" class="col-sm-12 input-form"></textarea>
+        </div>
       </div>
     </section>
-
-    <section id="textareaField"></section>
 
     <section id="modalWindow"></section>
 
