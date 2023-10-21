@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Black"), local("Roboto-Black"),
+    url("../fonts/Robotoblack.woff2") format("woff2"),
+    url("../fonts/Robotoblack.woff") format("woff"),
+    url("../fonts/Robotobold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto Bold"), local("Roboto-Bold"),
+    url("../fonts/Robotobold.woff2") format("woff2"),
+    url("../fonts/Robotobold.woff") format("woff"),
+    url("../fonts/Robotobold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), local("Roboto-Regular"),
+    url("../fonts/Roboto.woff2") format("woff2"),
+    url("../fonts/Roboto.woff") format("woff"),
+    url("../fonts/Roboto.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button {
+  background: var(--background-buttons-normal);
+  border: 0px solid var(--background-buttons-normal);
+  font-size: 21px;
+  color: var(--background-white);
+  text-align: center;
+  width: 253px;
+  height: 54px;
+}
+
+.button:hover {
+  background: var(--background-buttons-hover);
+  border: 0px solid var(--background-buttons-hover);
+}
+
+.button:active {
+  background: var(--background-buttons-active);
+  border: 0px solid var(--background-buttons-active);
+}
+
+/*==============================================*/
+
+#wrapper {
+  max-width: 1440px;
+  background-color: rgba(149, 241, 10, 0.658);
+}
+
