@@ -55,6 +55,7 @@ myXhrMarks.onerror = function () {
 myXhrMarks.send();
 let tranport_marks_click = document.getElementById("transpot-marks");
 tranport_marks_click.addEventListener("change",function(){
+<<<<<<< HEAD
   console.log("Marks",tranport_marks_click.value)
   function populateYearSelect() {
     let selectYear = document.getElementById("transpot-year");
@@ -96,5 +97,8 @@ tranport_Fuel_click.addEventListener("change",function(){
   console.log("Fuel",tranport_Fuel_click.value)
 })  
 })  
+=======
+  console.log("value_2",tranport_marks_click.value)
+>>>>>>> main
 })
 });
