@@ -94,9 +94,19 @@ a {
 }
 
 .mb-3 {
-  margin: 2rem!important;
+  margin: 2rem !important;
 }
 
 #textareaField .infoUser .input-form {
   height: 200px;
+}
+
+.content button {
+  margin: 0 auto;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  display: flex;
+  margin-bottom: 50px;
+  padding: 10px;
 }
