@@ -55,6 +55,46 @@ myXhrMarks.onerror = function () {
 myXhrMarks.send();
 let tranport_marks_click = document.getElementById("transpot-marks");
 tranport_marks_click.addEventListener("change",function(){
-  console.log("value_2",tranport_marks_click.value)
+  console.log("Marks",tranport_marks_click.value)
+  function populateYearSelect() {
+    let selectYear = document.getElementById("transpot-year");
+
+    for (let year = 1970; year <= 2023; year++) {
+        let option = document.createElement("option");
+        option.value = year;
+        option.text = year;
+        selectYear.appendChild(option);
+    }
+
+    selectYear.addEventListener("change", function() {
+        let selectedYear = selectYear.value;
+        if (selectedYear) {
+            console.log("Ви вибрали рік " + selectedYear);
+        } else {
+            console.log("Будь ласка, оберіть рік");
+        }
+    });
+}
+populateYearSelect();
+let tranport_Year_click = document.getElementById("transpot-year");
+tranport_Year_click.addEventListener("change",function(){
+  function populateFuelSelect() {
+    let selectFuel = document.getElementById("transpot-fuel");
+
+    let fuelOptions = ["Бензин", "Газ", "Дизель", "Гібрид", "Електро"];
+
+    fuelOptions.forEach(function(fuel) {
+        let option = document.createElement("option");
+        option.value = fuel;
+        option.text = fuel;
+        selectFuel.appendChild(option);
+    });
+}
+populateFuelSelect();
+let tranport_Fuel_click = document.getElementById("transpot-fuel");
+tranport_Fuel_click.addEventListener("change",function(){
+  console.log("Fuel",tranport_Fuel_click.value)
+})  
+})  
 })
 });
