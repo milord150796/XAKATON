@@ -116,3 +116,28 @@ tranport_accident_click.addEventListener("change",function(){
 })  
 })
 });
+var data = {
+  "model": "gpt-3.5-turbo",
+  "messages": [{"role": "user", "content": "З тексту: У продажу Dodge Journey у комплектації R/T, 2015 року випуску, на автоматичній коробці передач та на передньому приводі. Автомобіль прибув з Америки, безпека вся ціла, один власник. Візуально і по ЛКП без нарікань, салон у відмінному стані та з комфортною комплектацією, в яку входить камера заднього виду, підігрів передніх сидінь, керма, 3-й ряд сидінь та багато іншого. З технічного боку автомобіль повністю обслугований та готовий до будь-яких перевірок на СТО. Запрошуємо на тест-драйв. 39655, Виділи властивості: Марка автомобіля, Модель автомобіля, Рік випуску. Порівняй з параметрами: Марка автомобіля - Dodge, Модель - Journey, Рік випуску -2015. Якщо властивості і параметри не співпадають поверни їх, у форматі: властивіть - параметр. Якщо всі властивості відповідають параметрам, поверни - Ок"}],
+  "temperature": 0.7
+};
+var request = new XMLHttpRequest();
+
+request.setRequestHeader('Authorization', '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');
+
+      request.open('POST', "https://api.openai.com/v1/chat/completions", false);
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.onload = function() {
+          if (this.status >= 200 && this.status < 400) {
+              var resp = JSON.parse(this.response);
+              
+                  
+              console.log(resp);
+          }else{
+              console.log("ERROR");
+          }
+      }
+      request.onerror = function() {
+          console.log("ERROR");
+      };
+request.send(JSON.stringify(data));
