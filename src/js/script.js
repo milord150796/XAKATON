@@ -94,6 +94,24 @@ populateFuelSelect();
 let tranport_Fuel_click = document.getElementById("transpot-fuel");
 tranport_Fuel_click.addEventListener("change",function(){
   console.log("Fuel",tranport_Fuel_click.value)
+  function populateAccidentSelect() {
+    let selectAccident = document.getElementById("transpot-accident");
+
+    let accidentOptions = ["в ДТП", "не в ДТП"];
+
+    accidentOptions.forEach(function(accident) {
+        let option = document.createElement("option");
+        option.value = accident;
+        option.text = accident;
+        selectAccident.appendChild(option);
+    });
+}
+
+populateAccidentSelect();
+let tranport_accident_click = document.getElementById("transpot-accident");
+tranport_accident_click.addEventListener("change",function(){
+  console.log("ДТП",tranport_accident_click.value)
+})  
 })  
 })  
 })
