@@ -88,15 +88,14 @@
           </div>
         </div>
         <button id="showModalBtn" class="check-form" type="submit" data-bs-target="#responseModal"
-          data-toggle="modal">Залишити
-          дані</button>
+          data-toggle="modal" onclick="submitFunction()">Залишити дані</button>
       </section>
     </div>
     <div id="modal" class="modal">
       <div class="modal-content">
         <span id="closeModal" class="close-modal">×</span>
-        <h2>Привіт! <br> Вдячні Вам <br> за надану інформацію</h2>
-        <p></p>
+        <h2 >Привіт! <br> Вдячні Вам <br> за надану інформацію</h2>
+        <p id="result"></p>
       </div>
     </div>
   </div>

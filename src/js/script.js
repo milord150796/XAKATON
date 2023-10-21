@@ -28,7 +28,6 @@ myXhr.send();
 
 let e = document.getElementById("transpot-typ");
 e.addEventListener("change", function () {
-  console.log("e.value", e.value);
   const requestMarks = `https://developers.ria.com/auto/categories/${e.value}/marks?api_key=hPakOudm8AaUyt5aMie8MKqY0xtcIuDWowepg3pa`;
   const myXhrMarks = new XMLHttpRequest();
   myXhrMarks.open('GET', requestMarks, true);
@@ -57,7 +56,6 @@ e.addEventListener("change", function () {
   myXhrMarks.send();
   let tranport_marks_click = document.getElementById("transpot-marks");
   tranport_marks_click.addEventListener("change", function () {
-    console.log("marks", tranport_marks_click.value);
     const requestModel = `https://developers.ria.com/auto/categories/${e.value}/marks/${tranport_marks_click.value}/models?api_key=hPakOudm8AaUyt5aMie8MKqY0xtcIuDWowepg3pa`;
     const myXhrModel = new XMLHttpRequest();
     myXhrModel.open('GET', requestModel, true);
@@ -87,7 +85,6 @@ e.addEventListener("change", function () {
 
     let tranport_Model_click = document.getElementById("transpot-model");
     tranport_Model_click.addEventListener("change", function () {
-      console.log("Model", tranport_Model_click.value)
       function populateYearSelect() {
         let selectYear = document.getElementById("transpot-year");
         selectYear.innerHTML = "";
@@ -148,7 +145,6 @@ e.addEventListener("change", function () {
         populateFuelSelect();
         let tranport_Fuel_click = document.getElementById("transpot-fuel");
         tranport_Fuel_click.addEventListener("change", function () {
-          console.log("Fuel", tranport_Fuel_click.value)
           function populateAccidentSelect() {
             let selectAccident = document.getElementById("transpot-accident");
             selectAccident.innerHTML = "";
@@ -165,7 +161,6 @@ e.addEventListener("change", function () {
               let option = document.createElement("option");
               option.value = accident;
               option.text = accident;
-              console.log(option)
               selectAccident.appendChild(option);
             }
             );
@@ -182,7 +177,7 @@ e.addEventListener("change", function () {
           populateAccidentSelect();
           let tranport_accident_click = document.getElementById("transpot-accident");
           tranport_accident_click.addEventListener("change", function () {
-            console.log("ДТП", tranport_accident_click.value);
+            
 
             /*--modalWindow-- */
             // Отримання посилань на елементи
@@ -199,6 +194,7 @@ e.addEventListener("change", function () {
             function closeModalWindow() {
               modal.style.display = "none";
             }
+            
 
             // Додавання обробників подій
             showModalBtn.addEventListener("click", openModal);
@@ -214,3 +210,45 @@ e.addEventListener("change", function () {
     })
   });
 });
+function submitFunction() {
+  var apiKey = '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';
+  var apiUrl = 'https://api.openai.com/v1/chat/completions';
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', apiUrl, true);
+  xhr.setRequestHeader('Authorization', 'Bearer ' + apiKey);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText);
+        if (response.choices && response.choices.length > 0) {
+          var messageContent = response.choices[0].message.content;
+          var resultId = document.getElementById('result');
+          resultId.innerHTML = `<p>${messageContent}</p>`;
+          if (messageContent === "Ok") {
+            resultId.innerText = messageContent;
+            let showModalBtn = document.getElementById('showModalBtn');
+            showModalBtn.click(); // Активуємо кнопку для відображення модального вікна
+          } else {
+            console.log('Опис не відповідає параметрам');
+          }
+        }
+      } else {
+        console.error('Помилка при виконанні запиту:', xhr.status, xhr.statusText);
+      }
+    }
+  };
+
+  var requestBody = {
+    model: 'gpt-3.5-turbo',
+    messages: [
+      { role: 'system', content: 'You are a helpful assistant.' },
+      {
+        role: 'user',
+        content: 'В тексту: У продажу Dodge Journey у комплектації R/T, 2015 року випуску, на автоматичній коробці передач та на передньому приводі. Автомобіль прибув з Америки, безпека вся ціла, один власник. Візуально і по ЛКП без нарікань, салон у відмінному стані та з комфортною комплектацією, в яку входить камера заднього виду, підігрів передніх сидінь, керма, 3-й ряд сидінь та багато іншого. З технічного боку автомобіль повністю обслугований та готовий до будь-яких перевірок на СТО. Запрошуємо на тест-драйв. 39655, Виділи властивості: Марка автомобіля, Модель автомобіля, Рік випуску. Порівняй з параметрами: Марка автомобіля - Dodge, Модель автомобіля - Dodge, Рік випуску -2015. Якщо властивості і параметри не співпадають поверни їх, у форматі json у вигляді: властивіть - параметр. Якщо всі властивості відповідають параметрам, поверни - Ок. Результат поверни в resultString'
+      }
+    ]
+  };
+  xhr.send(JSON.stringify(requestBody));
+}
+
