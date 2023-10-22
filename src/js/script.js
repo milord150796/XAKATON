@@ -28,7 +28,7 @@ myXhr.send();
 let e = document.getElementById("transpot-typ");
 e.addEventListener("change", function() {
   console.log("e.value", e.value);
-  const requestMarks = `https://developers.ria.com/auto/categories/${e.value}/marks?api_key=hPakOudm8AaUyt5aMie8MKqY0xtcIuDWowepg3pa`;
+const requestMarks = `https://developers.ria.com/auto/categories/${e.value}/marks?api_key=hPakOudm8AaUyt5aMie8MKqY0xtcIuDWowepg3pa`;
 const myXhrMarks = new XMLHttpRequest();
 myXhrMarks.open('GET', requestMarks, true);
 
@@ -55,7 +55,36 @@ myXhrMarks.onerror = function () {
 myXhrMarks.send();
 let tranport_marks_click = document.getElementById("transpot-marks");
 tranport_marks_click.addEventListener("change",function(){
-  console.log("Marks",tranport_marks_click.value)
+  console.log("marks",tranport_marks_click.value);
+  const requestModel = `https://developers.ria.com/auto/categories/${e.value}/marks/${tranport_marks_click.value}/models?api_key=hPakOudm8AaUyt5aMie8MKqY0xtcIuDWowepg3pa`;
+  const myXhrModel = new XMLHttpRequest();
+  myXhrModel.open('GET', requestModel, true);
+  
+  myXhrModel.onload = function () {
+    if (myXhrModel.status === 200) {
+      const Model = {
+        pageContent: myXhrModel.response
+      };
+      let tranport_Model = JSON.parse(Model.pageContent);
+      let transpot_Model_document = document.getElementById("transpot-model");
+      let html_text = tranport_Model.map((elem) => {
+        return `<option value="${elem.value}">${elem.name}</option>`;
+      });
+      transpot_Model_document.innerHTML = html_text.join(''); 
+    } else {
+      console.error(`Помилка: статус код - ${myXhrModel.status}`);
+    }
+  };
+  
+  myXhrModel.onerror = function () {
+    console.error('Помилка запиту');
+  };
+  
+  myXhrModel.send();
+
+let tranport_Model_click = document.getElementById("transpot-model");
+tranport_Model_click.addEventListener("change",function(){
+  console.log("Model",tranport_Model_click.value)
   function populateYearSelect() {
     let selectYear = document.getElementById("transpot-year");
 
@@ -100,44 +129,47 @@ tranport_Fuel_click.addEventListener("change",function(){
     let accidentOptions = ["в ДТП", "не в ДТП"];
 
     accidentOptions.forEach(function(accident) {
-        let option = document.createElement("option");
-        option.value = accident;
-        option.text = accident;
-        selectAccident.appendChild(option);
-    });
+      let option = document.createElement("option");
+      option.value = accident;
+      option.text = accident;
+      console.log(option)
+      selectAccident.appendChild(option);
+    }
+  );
 }
 
 populateAccidentSelect();
 let tranport_accident_click = document.getElementById("transpot-accident");
 tranport_accident_click.addEventListener("change",function(){
   console.log("ДТП",tranport_accident_click.value)
+});
 })  
 })  
 })  
 })
 });
-var data = {
-  "model": "gpt-3.5-turbo",
-  "messages": [{"role": "user", "content": "З тексту: У продажу Dodge Journey у комплектації R/T, 2015 року випуску, на автоматичній коробці передач та на передньому приводі. Автомобіль прибув з Америки, безпека вся ціла, один власник. Візуально і по ЛКП без нарікань, салон у відмінному стані та з комфортною комплектацією, в яку входить камера заднього виду, підігрів передніх сидінь, керма, 3-й ряд сидінь та багато іншого. З технічного боку автомобіль повністю обслугований та готовий до будь-яких перевірок на СТО. Запрошуємо на тест-драйв. 39655, Виділи властивості: Марка автомобіля, Модель автомобіля, Рік випуску. Порівняй з параметрами: Марка автомобіля - Dodge, Модель - Journey, Рік випуску -2015. Якщо властивості і параметри не співпадають поверни їх, у форматі: властивіть - параметр. Якщо всі властивості відповідають параметрам, поверни - Ок"}],
-  "temperature": 0.7
-};
-var request = new XMLHttpRequest();
+// var data = {
+//   "model": "gpt-3.5-turbo",
+//   "messages": [{"role": "user", "content": "З тексту: У продажу Dodge Journey у комплектації R/T, 2015 року випуску, на автоматичній коробці передач та на передньому приводі. Автомобіль прибув з Америки, безпека вся ціла, один власник. Візуально і по ЛКП без нарікань, салон у відмінному стані та з комфортною комплектацією, в яку входить камера заднього виду, підігрів передніх сидінь, керма, 3-й ряд сидінь та багато іншого. З технічного боку автомобіль повністю обслугований та готовий до будь-яких перевірок на СТО. Запрошуємо на тест-драйв. 39655, Виділи властивості: Марка автомобіля, Модель автомобіля, Рік випуску. Порівняй з параметрами: Марка автомобіля - Dodge, Модель - Journey, Рік випуску -2015. Якщо властивості і параметри не співпадають поверни їх, у форматі: властивіть - параметр. Якщо всі властивості відповідають параметрам, поверни - Ок"}],
+//   "temperature": 0.7
+// };
+// var request = new XMLHttpRequest();
 
-request.setRequestHeader('Authorization', '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');
+// request.setRequestHeader('Authorization', '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');
 
-      request.open('POST', "https://api.openai.com/v1/chat/completions", false);
-      request.setRequestHeader('Content-Type', 'application/json');
-      request.onload = function() {
-          if (this.status >= 200 && this.status < 400) {
-              var resp = JSON.parse(this.response);
+//       request.open('POST', "https://api.openai.com/v1/chat/completions", false);
+//       request.setRequestHeader('Content-Type', 'application/json');
+//       request.onload = function() {
+//           if (this.status >= 200 && this.status < 400) {
+//               var resp = JSON.parse(this.response);
               
                   
-              console.log(resp);
-          }else{
-              console.log("ERROR");
-          }
-      }
-      request.onerror = function() {
-          console.log("ERROR");
-      };
-request.send(JSON.stringify(data));
+//               console.log(resp);
+//           }else{
+//               console.log("ERROR");
+//           }
+//       }
+//       request.onerror = function() {
+//           console.log("ERROR");
+//       };
+// request.send(JSON.stringify(data));
