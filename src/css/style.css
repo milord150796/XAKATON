@@ -19,77 +19,74 @@ a {
   cursor: pointer;
 }
 
-.button {
-  background: var(--background-buttons-normal);
-  border: 0px solid var(--background-buttons-normal);
-  font-size: 21px;
-  color: var(--background-white);
-  text-align: center;
-  width: 253px;
-  height: 54px;
-}
-
-.button:hover {
-  background: var(--background-buttons-hover);
-  border: 0px solid var(--background-buttons-hover);
-}
-
-.button:active {
-  background: var(--background-buttons-active);
-  border: 0px solid var(--background-buttons-active);
-}
 
 /*==============================================*/
 
 #wrapper {
-  width: 100%;
+  max-width: 1440px;
   height: 100%;
-  background-color: rgba(149, 241, 10, 0.658);
+  background-color: rgb(127 241 10 / 21%);
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  background-image: url();
+  font-family: math;
+  color: rgb(94, 24, 45);
+  margin: 0 auto;
+
+
 }
 
-#wrapper .title {
-  font-weight: 700;
+#wrapper .header {
+  display: flex;
+}
+
+#wrapper .header .title {
+  font-weight: 800;
   margin: 0 auto;
   text-align: center;
+  margin: 50px 0px 20px 0px;
 }
 
 
 #wrapper .content {
-  min-width: 800px;
+  max-width: 800px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-image: url(/src/images/bacgraund.jpg);
+  border-radius: 10px;
+  margin: 0px 0px 50px 0px;
+  box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.5);
 }
 
 
 #wrapper .content .input-group .input-group-prepend .input-group-text {
   font-size: 24px;
   font-weight: 600;
-  width: 200px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  width: 180px;
+  background-color: rgba(127, 157, 255, 0.188);
+  color: rgb(94, 24, 45);
 }
 
 .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
   width: 300px;
-  font-size: 24px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
+  font-size: 22px;
+  font-family: math;
+  background-color: rgba(255, 178, 127, 0.59);
+  border-radius: 10px;
+  border: 1px white solid;
+  color: rgb(94, 24, 45);
 }
 
 .custom-select option {
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 500;
   width: 200px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: rgba(127, 157, 255, 0.188);
+  border: 1px white solid;
   border-radius: 10px;
 }
 
@@ -99,14 +96,86 @@ a {
 
 #textareaField .infoUser .input-form {
   height: 200px;
+  background-color: rgba(255, 178, 127, 0.59);
+  border-radius: 10px;
+  border: 1px white solid;
+}
+
+#textareaField .col-form-label {
+  font-weight: 600;
 }
 
 .content button {
   margin: 0 auto;
+  background-color: #7b2830;
+  border-radius: 10px;
+  color: #fff;
+  border: 1px #fff solid;
 }
 
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+.content button:hover,
+.content button:active {
+  background-color: #3e7b28b9;
+}
+
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   padding: 10px;
+}
+
+@media (max-width: 630px) {
+
+  #wrapper .content {
+    box-shadow: none;
+    justify-content: center;
+
+  }
+
+  #wrapper .header {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  #wrapper .header .title {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  #wrapper .header .title h1 {
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  #wrapper .content .input-group .input-group-prepend .input-group-text {
+    width: 280px;
+    height: 40px;
+    padding: 4px;
+  }
+
+  .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    height: 40px;
+    width: 280px;
+    margin: 6px;
+  }
+
+  .mb-3 {
+    margin: 20px 0px 25px 0px !important;
+    justify-content: center;
+  }
+
+  #wrapper .content #textareaField {
+    margin-top: -35px;
+  }
+
+  #textareaField .infoUser .input-form {
+    height: 130px;
+    width: 100%;
+  }
 }
