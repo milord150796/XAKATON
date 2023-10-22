@@ -34,19 +34,25 @@ a {
   font-family: math;
   color: rgb(94, 24, 45);
   margin: 0 auto;
-
-
+  background-size: 100%
 }
 
 #wrapper .header {
   display: flex;
+  margin: 50px 0px 20px 0px;
 }
 
 #wrapper .header .title {
   font-weight: 800;
   margin: 0 auto;
   text-align: center;
-  margin: 50px 0px 20px 0px;
+
+}
+
+#wrapper .header img {
+  width: 250px;
+  height: 85px;
+  margin: 0px 40px 20px 0px;
 }
 
 
@@ -69,6 +75,7 @@ a {
   width: 180px;
   background-color: rgba(127, 157, 255, 0.188);
   color: rgb(94, 24, 45);
+  height: 40px;
 }
 
 .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
@@ -91,11 +98,11 @@ a {
 }
 
 .mb-3 {
-  margin: 2rem !important;
+  margin: 30px !important;
 }
 
 #textareaField .infoUser .input-form {
-  height: 200px;
+  height: 150px;
   background-color: rgba(255, 178, 127, 0.59);
   border-radius: 10px;
   border: 1px white solid;
@@ -128,7 +135,56 @@ button:not(:disabled) {
   padding: 10px;
 }
 
+
+/* Стилі для модального вікна */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  background-color: #3e7b28b9;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.modal-content p {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.modal-content h2 {
+  font-size: 18px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*----------------------------*/
 @media (max-width: 630px) {
+  #wrapper {
+    padding: 0px 10px 0px 10px;
+  }
 
   #wrapper .content {
     box-shadow: none;
@@ -139,6 +195,7 @@ button:not(:disabled) {
   #wrapper .header {
     justify-content: center;
     flex-direction: column;
+    margin: 20px 0px 0px 0px;
   }
 
   #wrapper .header .title {
@@ -153,20 +210,26 @@ button:not(:disabled) {
     text-align: center;
   }
 
+  #wrapper .header img {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
   #wrapper .content .input-group .input-group-prepend .input-group-text {
     width: 280px;
-    height: 40px;
+    height: 30px;
     padding: 4px;
+    font-size: 20px;
   }
 
   .input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
-    height: 40px;
+    height: 30px;
     width: 280px;
     margin: 6px;
   }
 
   .mb-3 {
-    margin: 20px 0px 25px 0px !important;
+    margin: 15px 0px 15px 0px !important;
     justify-content: center;
   }
 
@@ -178,4 +241,15 @@ button:not(:disabled) {
     height: 130px;
     width: 100%;
   }
+
+  .col-form-label {
+    font-size: 18px;
+  }
+
+  .modal-content {
+    width: 85%;
+  }
+
+
+
 }
