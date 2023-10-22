@@ -148,28 +148,28 @@ e.addEventListener("change", function () {
   })
 
 
-/*--modalWindow-- */
-// Отримання посилань на елементи
-const showModalBtn = document.getElementById("showModalBtn");
-const modal = document.getElementById("modal");
-const closeModal = document.getElementById("closeModal");
+  /*--modalWindow-- */
+  // Отримання посилань на елементи
+  const showModalBtn = document.getElementById("showModalBtn");
+  const modal = document.getElementById("modal");
+  const closeModal = document.getElementById("closeModal");
 
-// Функція для відображення модального вікна
-function openModal() {
-  modal.style.display = "block";
-}
-
-// Функція для закриття модального вікна
-function closeModalWindow() {
-  modal.style.display = "none";
-}
-
-// Додавання обробників подій
-showModalBtn.addEventListener("click", openModal);
-closeModal.addEventListener("click", closeModalWindow);
-modal.addEventListener("click", function (e) {
-  if (e.target === modal) {
-    closeModalWindow();
+  // Функція для відображення модального вікна
+  function openModal() {
+    modal.style.display = "block";
   }
-});
+
+  // Функція для закриття модального вікна
+  function closeModalWindow() {
+    modal.style.display = "none";
+  }
+
+  // Додавання обробників подій
+  showModalBtn.addEventListener("click", openModal);
+  closeModal.addEventListener("click", closeModalWindow);
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModalWindow();
+    }
+  });
 });
